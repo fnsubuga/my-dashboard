@@ -65,23 +65,23 @@ st.markdown('<div class="content">', unsafe_allow_html=True)
 # %% Load data 
 
 # Total sites visited
-file_path = "D:/Python/dashboard/dashboard/SupportSupervisionRpt/Data/Jan_March/visit/TotalSites_Visited.xls"
+file_path = "Data/visit/TotalSites_Visited.xls"
 TlVisit  =  pd.read_excel(file_path)
 
 # Total sites visited, and by RRH
-file_path1 = "D:/Python/dashboard/dashboard/SupportSupervisionRpt/Data/Jan_March/visit/RRH_SitesVisited_level.xls"
+file_path1 = "Data/visit/RRH_SitesVisited_level.xls"
 visits  = pd.read_excel(file_path1)
 
 # Total visited by level
-file_path2 = "D:/Python/dashboard/dashboard/SupportSupervisionRpt/Data/Jan_March/visit/TotalSites_level.xls"
+file_path2 = "Data/visit/visit/TotalSites_level.xls"
 VLevel  = pd.read_excel(file_path2)
 
 # Line list of visited facilities
-file_path3 = "D:/Python/dashboard/dashboard/SupportSupervisionRpt/Data/Jan_March/visit/Linelist_sitesVisited.xls"
+file_path3 = "Data/visit/Linelist_sitesVisited.xls"
 Fac_linelist  = pd.read_excel(file_path3)
 
 # KPI summary table
-file_path4 = "D:/Python/dashboard/dashboard/SupportSupervisionRpt/Data/Jan_March/KPI_Summary.xls"
+file_path4 = "Data/visit/KPI_Summary.xls"
 KPIs  = pd.read_excel(file_path4)
 # %% Filters
 # Apply the filter for all table
