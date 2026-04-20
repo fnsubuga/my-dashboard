@@ -117,7 +117,7 @@ def apply_filters(df, indicator, rrh, yr, qtr):
     # Filter by RRH if column exists and not "All"
     if "RRH" in df_filtered.columns and rrh != "All":
         df_filtered = df_filtered[df_filtered["RRH"] == rrh]
-        
+          
     # Filter by Indicator if column exists and not "All"
     if "Indicator" in df_filtered.columns and indicator != "All":
         df_filtered = df_filtered[df_filtered["Indicator"] == indicator]
@@ -203,7 +203,7 @@ grid_response = AgGrid(
     # for downloading
     data_return_mode="FILTERED_AND_SORTED", 
     fit_columns_on_grid_load=True,
-    theme='alpine',
+    theme='streamlit',
     height=300 
 )
 
