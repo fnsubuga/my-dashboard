@@ -159,50 +159,15 @@ filter_RRH_Vslvl = filtered_tables["RRH_Vslvl"]
 ##################################################################################################
 ##################################################################################################
 # %% No. sites visited (National)
-st.markdown(
-    """
-    <h2 style='font-size: 14px; font-family: sans-serif; font-weight: bold;'>
-        Number of health labs visited
-    </h2>
-    """, 
-    unsafe_allow_html=True
-)
-# change Yr type to String
-TlVisit["Yr"]  = TlVisit["Yr"].astype(str)
+st.subheader("Number of health labs visited")
 
-# The table
-gb = GridOptionsBuilder().from_dataframe(TlVisit)
+st.dataframe(TlVisit)  # should show
 
-# Enable filtering
-gb.configure_default_column(filter = True, sortable=True)
-
-# Freeze RRH column
-gb.configure_column("Yr", pinned="left")
-
-
-# Configure default column behavior
-gb.configure_default_column(
-    wrapText=True,              # Enable text wrapping
-    autoHeight=True,            # Adjust row height to fit wrapped text
-    cellStyle={
-        'font-size': '12px',
-        'line-height': '14px',  # Forces lines closer together (try 1.0 or 1.2 as well)
-        'padding-top': '2px',   # Optional: reduces space at the top of the cell
-        'padding-bottom': '2px' # Optional: reduces space at the bottom of the cell
-          } 
-)
-
-grid_options = gb.build()
-
-# Display the grid and capture the response
-grid_response = AgGrid(
+AgGrid(
     TlVisit,
     gridOptions=grid_options,
-    # for downloading
-    data_return_mode="FILTERED_AND_SORTED", 
-    fit_columns_on_grid_load=True,
-    theme='streamlit',
-    height=300 
+    height=400,
+    theme="streamlit"
 )
 
 #######################################################################################################
