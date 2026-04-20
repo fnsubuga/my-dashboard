@@ -6,3 +6,4 @@ plotly
 matplotlib
 altair
 streamlit-aggrid
+openpyxl
