@@ -200,7 +200,16 @@ AgGrid(
     theme="streamlit"
 )
 
+# Add the Download Button
+# Extract the data currently shown in the grid (post-filter/sort)
+df_to_download = grid_response['data']
 
+st.download_button(
+    label="📥 Download Table",
+    data=df_to_download.to_csv(index=False).encode('utf-8'),
+    file_name='rrh_sites1.csv',
+    mime='text/csv'
+)
 
 
 
