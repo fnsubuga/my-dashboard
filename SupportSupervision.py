@@ -183,8 +183,13 @@ st.subheader("Number of health labs visited")
 
 st.dataframe(filter_RRH_Vslvl)  # should show
 
-gb = GridOptionsBuilder.from_dataframe(TlVisit)
-gb.configure_default_column(filter=True, sortable=True)
+gb = GridOptionsBuilder.from_dataframe(filter_RRH_Vslvl)
+
+# Enable filtering
+gb.configure_default_column(filter = True, sortable=True)
+
+# Freeze RRH column
+gb.configure_column("RRH", pinned="left")
 
 grid_options = gb.build()
 
