@@ -65,8 +65,8 @@ st.markdown('<div class="content">', unsafe_allow_html=True)
 # %% Load data 
 
 # Total sites visited
-# file_path = "Data/visit/TotalSites_Visited.xls"
-# TlVisit  =  pd.read_excel(file_path)
+file_path = "Data/visit/TotalSites_Visited.xls"
+TlVisit  =  pd.read_excel(file_path)
 
 # Total sites visited, and by RRH
 file_path1 = "Data/visit/RRH_SitesVisited_level.xls"
