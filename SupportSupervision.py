@@ -200,7 +200,8 @@ grid_response = AgGrid(
     # for downloading
     data_return_mode="FILTERED_AND_SORTED", 
     fit_columns_on_grid_load=True,
-    theme='alpine'
+    theme='alpine',
+    height=300 
 )
 
 
@@ -246,7 +247,8 @@ grid_response = AgGrid(
     # for downloading
     data_return_mode="FILTERED_AND_SORTED", 
     fit_columns_on_grid_load=True,
-    theme='alpine'
+    theme='alpine',
+    height=300 
 )
 
 # Add the Download Button
@@ -302,7 +304,8 @@ grid_response = AgGrid(
     # for downloading
     data_return_mode="FILTERED_AND_SORTED", 
     fit_columns_on_grid_load=True,
-    theme='alpine'
+    theme='alpine',
+    height=300 
 )
 
 # Add the Download Button
