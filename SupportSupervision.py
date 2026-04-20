@@ -73,7 +73,7 @@ file_path1 = "Data/visit/RRH_SitesVisited_level.xls"
 visits  = pd.read_excel(file_path1)
 
 # Total visited by level
-file_path2 = "Data/visit/visit/TotalSites_level.xls"
+file_path2 = "Data/visit/TotalSites_level.xls"
 VLevel  = pd.read_excel(file_path2)
 
 # Line list of visited facilities
