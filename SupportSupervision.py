@@ -81,7 +81,7 @@ file_path3 = "Data/visit/Linelist_sitesVisited.xlsx"
 Fac_linelist  = pd.read_excel(file_path3)
 
 # KPI summary table
-file_path4 = "Data/visit/KPI_Summary.xlsx"
+file_path4 = "KPI_Summary.xlsx"
 KPIs  = pd.read_excel(file_path4)
 
 # %% Filters
