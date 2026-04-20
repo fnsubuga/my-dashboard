@@ -101,23 +101,23 @@ def col_rag2(val):
 # -----------------------------------------------------
 
 # HR Available by Health Level
-file_path2 = "D:/Python/dashboard/dashboard/SupportSupervisionRpt/Data/Jan_March/HR/PctHRAvail_by_Level.xls"
+file_path2 = "Data/HR/Jan_March/HR/PctHRAvail_by_Level.xls"
 HRLevel = pd.read_excel(file_path2)
 
 # HR avaible by RRH Region
-file_path3  =  "D:/Python/dashboard/dashboard/SupportSupervisionRpt/Data/Jan_March/HR/PctHRAvail_by_RRH.xls"
+file_path3  =  "Data/HR/PctHRAvail_by_RRH.xls"
 HRRgns  =  pd.read_excel(file_path3)
 
 # Prop cadres unavailable by health level
-file_path4  =  "D:/Python/dashboard/dashboard/SupportSupervisionRpt/Data/Jan_March/HR/Prop_cadres_unavailable.xls"
+file_path4  =  "Data/HR/Prop_cadres_unavailable.xls"
 CadreAvail  =  pd.read_excel(file_path4)
 
 # prop unvailable by RRH and health level
-file_path5  =  "D:/Python/dashboard/dashboard/SupportSupervisionRpt/Data/Jan_March/HR/Prop_cadres_unavailable_RRH_lvl.xls"
+file_path5  =  "Data/HR/Prop_cadres_unavailable_RRH_lvl.xls"
 CadreRRH_Lvl  =  pd.read_excel(file_path5)
 
 # prop unvailable by RRH and health level
-file_path6  =  "D:/Python/dashboard/dashboard/SupportSupervisionRpt/Data/Jan_March/HR/Detailed_HR.xls"
+file_path6  =  "Data/HR/Detailed_HR.xls"
 HRDetail  =  pd.read_excel(file_path6)
 
 
