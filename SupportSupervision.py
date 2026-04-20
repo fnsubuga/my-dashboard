@@ -193,17 +193,18 @@ gb.configure_column("RRH", pinned="left")
 
 grid_options = gb.build()
 
-AgGrid(
+# ✅ Capture response
+grid_response = AgGrid(
     filter_RRH_Vslvl,
     gridOptions=grid_options,
     height=400,
     theme="streamlit"
 )
 
-# Add the Download Button
-# Extract the data currently shown in the grid (post-filter/sort)
-df_to_download = grid_response['data']
+# ✅ Extract displayed data
+df_to_download = pd.DataFrame(grid_response['data'])
 
+# ✅ Download button
 st.download_button(
     label="📥 Download Table",
     data=df_to_download.to_csv(index=False).encode('utf-8'),
