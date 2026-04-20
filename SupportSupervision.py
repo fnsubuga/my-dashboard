@@ -171,7 +171,7 @@ grid_options = gb.build()
 AgGrid(
     TlVisit,
     gridOptions=grid_options,
-    height=400,
+    height=100,
     theme="streamlit"
 )
 
@@ -212,21 +212,15 @@ st.download_button(
     mime='text/csv'
 )
 
-
-
 ####################################################################################################
+#####################################################################################################
+#### %% Line list of health facilities visited ####
 
-st.markdown(
-    """
-    <h2 style='font-size: 14px; font-family: sans-serif; font-weight: bold;'>
-        Number of health labs visited by RRH, and health level
-    </h2>
-    """, 
-    unsafe_allow_html=True
-)
+st.subheader("Line list of health facilities visited")
 
+st.dataframe(filter_Fac_linelist)  # should show
 
-gb = GridOptionsBuilder().from_dataframe(filter_RRH_Vslvl)
+gb = GridOptionsBuilder.from_dataframe(filter_Fac_linelist)
 
 # Enable filtering
 gb.configure_default_column(filter = True, sortable=True)
@@ -234,96 +228,25 @@ gb.configure_default_column(filter = True, sortable=True)
 # Freeze RRH column
 gb.configure_column("RRH", pinned="left")
 
-
-# Configure default column behavior
-gb.configure_default_column(
-    wrapText=True,              # Enable text wrapping
-    autoHeight=True,            # Adjust row height to fit wrapped text
-    cellStyle={
-        'font-size': '12px',
-        'line-height': '14px',  # Forces lines closer together (try 1.0 or 1.2 as well)
-        'padding-top': '2px',   # Optional: reduces space at the top of the cell
-        'padding-bottom': '2px' # Optional: reduces space at the bottom of the cell
-          } 
-)
-
 grid_options = gb.build()
 
-# Display the grid and capture the response
-grid_response = AgGrid(
-    filter_RRH_Vslvl,
-    gridOptions=grid_options,
-    # for downloading
-    data_return_mode="FILTERED_AND_SORTED", 
-    fit_columns_on_grid_load=True,
-    theme='streamlit',
-    height=300 
-)
-
-# Add the Download Button
-# Extract the data currently shown in the grid (post-filter/sort)
-df_to_download = grid_response['data']
-
-st.download_button(
-    label="📥 Download Table",
-    data=df_to_download.to_csv(index=False).encode('utf-8'),
-    file_name='rrh_sites1.csv',
-    mime='text/csv'
-)
-
-# %% Line list of health facilities visited
-
-st.markdown(
-    """
-    <h2 style='font-size: 14px; font-family: sans-serif; font-weight: bold;'>
-        Linelist of health facilities visited by RRH
-    </h2>
-    """, 
-    unsafe_allow_html=True
-)
-
-
-gb = GridOptionsBuilder().from_dataframe(filter_Fac_linelist)
-
-# Enable filtering
-gb.configure_default_column(filter = True, sortable=True)
-
-# Freeze RRH column
-gb.configure_column("RRH", pinned="left")
-
-
-# Configure default column behavior
-gb.configure_default_column(
-    wrapText=True,              # Enable text wrapping
-    autoHeight=True,            # Adjust row height to fit wrapped text
-    cellStyle={
-        'font-size': '12px',
-        'line-height': '14px',  # Forces lines closer together (try 1.0 or 1.2 as well)
-        'padding-top': '2px',   # Optional: reduces space at the top of the cell
-        'padding-bottom': '2px' # Optional: reduces space at the bottom of the cell
-          } 
-)
-
-grid_options = gb.build()
-
-# Display the grid and capture the response
+# ✅ Capture response
 grid_response = AgGrid(
     filter_Fac_linelist,
     gridOptions=grid_options,
-    # for downloading
-    data_return_mode="FILTERED_AND_SORTED", 
-    fit_columns_on_grid_load=True,
-    theme='alpine',
-    height=300 
+    height=400,
+    theme="streamlit"
 )
 
-# Add the Download Button
-# Extract the data currently shown in the grid (post-filter/sort)
-df_to_download = grid_response['data']
+# ✅ Extract displayed data
+df_to_download = pd.DataFrame(grid_response['data'])
 
+# ✅ Download button
 st.download_button(
     label="📥 Download Table",
     data=df_to_download.to_csv(index=False).encode('utf-8'),
-    file_name='sites_visited.csv',
+    file_name='rrh_sites1ist.csv',
     mime='text/csv'
 )
+#######################################################################################################
+
