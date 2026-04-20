@@ -169,6 +169,9 @@ st.markdown(
 # change Yr type to String
 TlVisit["Yr"]  = TlVisit["Yr"].astype(str)
 
+st.write("DEBUG TlVisit shape:", TlVisit.shape)
+st.dataframe(TlVisit.head())
+
 # The table
 gb = GridOptionsBuilder().from_dataframe(TlVisit)
 
