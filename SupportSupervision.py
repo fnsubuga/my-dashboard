@@ -179,6 +179,28 @@ AgGrid(
 #######################################################################################################
 # %% Total sites visited, and by RRH
 
+st.subheader("Number of health labs visited")
+
+st.dataframe(filter_RRH_Vslvl)  # should show
+
+gb = GridOptionsBuilder.from_dataframe(TlVisit)
+gb.configure_default_column(filter=True, sortable=True)
+
+grid_options = gb.build()
+
+AgGrid(
+    filter_RRH_Vslvl,
+    gridOptions=grid_options,
+    height=400,
+    theme="streamlit"
+)
+
+
+
+
+
+####################################################################################################
+
 st.markdown(
     """
     <h2 style='font-size: 14px; font-family: sans-serif; font-weight: bold;'>
