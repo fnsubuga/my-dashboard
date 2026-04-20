@@ -158,29 +158,26 @@ filter_RRH_Vslvl = filtered_tables["RRH_Vslvl"]
 
 
 # %% No. sites visited (National)
-# st.markdown(
-   # """
-   # <h2 style='font-size: 14px; font-family: sans-serif; font-weight: bold;'>
-   #     Number of health labs visited
-  #  </h2>
-  #  """, 
-  #  unsafe_allow_html=True
-#)
-# change Yr type to String
-TlVisit["Yr"]  = TlVisit["Yr"].astype(str)
 
-# The table
+st.subheader("Number of health labs visited")
+
+# change Yr type to String
+TlVisit["Yr"] = TlVisit["Yr"].astype(str)
+
+# Build grid
 gb = GridOptionsBuilder.from_dataframe(TlVisit)
 gb.configure_default_column(filter=True, sortable=True)
 
 grid_options = gb.build()
 
+# Display table
 AgGrid(
     TlVisit,
     gridOptions=grid_options,
     height=400,
-    theme="streamlit",   # IMPORTANT
-    reload_data=True
+    theme="streamlit",
+    reload_data=True,
+    fit_columns_on_grid_load=True
 )
 
 
