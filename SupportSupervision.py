@@ -161,25 +161,14 @@ filter_RRH_Vslvl = filtered_tables["RRH_Vslvl"]
 
 st.subheader("Number of health labs visited")
 
-# change Yr type to String
-TlVisit["Yr"] = TlVisit["Yr"].astype(str)
+st.dataframe(TlVisit)  # should show
 
-# Build grid
-gb = GridOptionsBuilder.from_dataframe(TlVisit)
-gb.configure_default_column(filter=True, sortable=True)
-
-grid_options = gb.build()
-
-# Display table
 AgGrid(
     TlVisit,
     gridOptions=grid_options,
     height=400,
-    theme="streamlit",
-    reload_data=True,
-    fit_columns_on_grid_load=True
+    theme="streamlit"
 )
-
 
 
 
