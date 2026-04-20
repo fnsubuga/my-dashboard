@@ -163,6 +163,11 @@ st.subheader("Number of health labs visited")
 
 st.dataframe(TlVisit)  # should show
 
+gb = GridOptionsBuilder.from_dataframe(TlVisit)
+gb.configure_default_column(filter=True, sortable=True)
+
+grid_options = gb.build()
+
 AgGrid(
     TlVisit,
     gridOptions=grid_options,
